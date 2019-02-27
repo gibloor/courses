@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+  <input type="text" id='dats' value="14,41,61,65,24,14,51,61,12">
+  <input type="text" id='dats1' value="3">
+  <button type="button" name="button" id="but">Отправить</button>
+
+  <script>
+    var but = document.getElementById('but');
+    but.onclick = funkc;
+
+    function funkc() {
+      var array = document.getElementById('dats').value;
+      var num = document.getElementById('dats1').value;
+      var array = array.split(',');
+      getArray(array, num);
+    }
+
+    function getArray(array, num) {
+      if (num >= array.length) {
+        return console.log(array)
+      };
+      var glarray = [];
+      var z = 0;
+      for (i = 0; i < array.length / num; i++) {
+        glarray[i] = array.slice(z, z += +num);
+      }
+      console.log(glarray);
+    }
+  </script>
+</body>
+
+</html>

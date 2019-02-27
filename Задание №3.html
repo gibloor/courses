@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="text" id='dats' value="Огород полон картофеля">
+  <button type="button" name="button" id="but">Отправить</button>
+  <div id="End">
+
+  </div>
+
+  <script>
+    var but = document.getElementById('but');
+    but.onclick = funkc;
+
+    function funkc() {
+      var dats = document.getElementById('dats').value;
+      var array = dats.split(' ');
+      Resul = 1000;
+      array.forEach(function(item, i, array) {
+        if (array[i].length < Resul) {
+          Resul = array[i].length;
+        }
+      });
+      var news = document.createElement('p');
+      news.innerHTML = Resul;
+      End.insertBefore(news, End.children[0]);
+    }
+  </script>
+</body>
+
+</html>

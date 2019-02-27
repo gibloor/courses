@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+
+  <input type="text" id='dats' value="5">
+  <button type="button" name="button" id="butn">Отправить</button>
+
+  <script>
+    var butn = document.getElementById('butn');
+    butn.onclick = takes;
+
+    function takes() {
+      var num = document.getElementById('dats').value;
+      var obj = createHolder(num);
+      obj.getValue();
+      obj.setValue(2);
+      obj.getValue();
+    }
+
+    function createHolder(arg) {
+      var number = arg;
+      return {
+        getValue: function() {
+          console.log(number);
+        },
+        setValue: function(arg) {
+          number = arg;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

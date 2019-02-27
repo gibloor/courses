@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+  <input type="text" id='string' value="чебурек маршик чебуршик">
+  <input type="text" id='simvol' value="$">
+  <button type="button" name="button" id="but">Отправить</button>
+
+  <script>
+    var but = document.getElementById('but');
+    but.onclick = funkc;
+
+    function funkc() {
+      var string = document.getElementById('string').value;
+      var simvol = document.getElementById('simvol').value;
+      var string = string.split(' ');
+
+      getArray(string, simvol);
+    }
+
+    function getArray(string, simvol) {
+      long = 0;
+      for (var i = 0; i < string.length; i++) {
+        if (string[i].length > long) {
+          long = string[i].length;
+        }
+      }
+      long += 4;
+      var strings = '';
+      for (i = 0; i < long; i++) {
+        strings += simvol;
+      }
+      console.log(strings);
+      long -= 2;
+      for (i = 0; i < string.length; i++) {
+        var stroka = simvol + ' ' + string[i];
+        for (k = 0; k < long; k++) {
+          if (stroka.length < long) {
+            stroka += ' ';
+          } else {
+            break
+          };
+        }
+        stroka += ' ' + simvol;
+        console.log(stroka);
+      }
+      console.log(strings);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+  <input type="text" id='dats' value="4,41,61,65,24,14,51,61,12">
+  <input type="text" id='dats1' value="3">
+  <button type="button" name="button" id="but">Отправить</button>
+
+  <script>
+    var but = document.getElementById('but');
+    but.onclick = funkc;
+
+    function funkc() {
+      var array = document.getElementById('dats').value;
+      var num = document.getElementById('dats1').value;
+      var array = array.split(',');
+      getArray(array, num);
+    }
+
+    function getArray(array, num) {
+      array.push(num);
+      array.sort(compareNumeric);
+      console.log(array[0]);
+    }
+
+    function compareNumeric(a, b) {
+      return a - b;
+    }
+  </script>
+</body>
+
+</html>

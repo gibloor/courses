@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+
+  <form>
+    <input value="5" name="user" form="data" id="otvet">
+    <input type="button" value="Отправить" form="data" onclick="Result()">
+  </form>
+  <script>
+    function Result() {
+
+      var otv = document.getElementById('otvet').value;
+      otv = otv ^ 0;
+
+      if (otv > 0) {
+        var string = '';
+        for (var i = 1; i <= otv; i++) {
+          string += i + ' sheep ';
+        }
+
+        var div = document.body.children[1];
+        div.insertAdjacentHTML("afterEnd", "<p>" + string + "</p>");
+      } else {
+        alert('Введите положительное число');
+      }
+    }
+  </script>
+
+</body>
+
+</html>

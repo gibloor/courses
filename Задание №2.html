@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    body{
+    margin: 0px;
+  }
+  form{
+    height: 30px;
+    margin: 10px;
+  }
+    .glBlock{
+      width: 100%;
+      height: 70px;
+    }
+    .LittleBlock{
+      float: left;
+      background-color: green;
+      width: 1.5vw;
+      height: 3vh;
+      margin: 0.5vw;
+    }
+    input{
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <input value="5" name="user" form="data" id="otvet">
+    <input type="button" value="Отправить" form="data" onclick="Result()">
+  </form>
+  <script>
+    function Result() {
+      var Z = 0;
+      var V = document.getElementById('otvet').value;
+      V = V ^ 0;
+      if (V > 0 && V < 31) {
+        for (var i = 0; i < V; i++) {
+          var div = document.body.children[Z];
+          div.insertAdjacentHTML("afterEnd", "<div class='glBlock'></div>");
+          Z++;
+          A = 0;
+          for (var N = 0; N < V; N++) {
+            var div = document.body.children[Z];
+            div.insertAdjacentHTML("beforeEnd", "<div class='LittleBlock'></div>");
+            document.body.children[Z].children[A].style.backgroundColor = randomColor();
+            A++;
+          }
+        }
+      } else {
+        alert('Введите число от 1 до 30');
+      };
+    }
+
+    function randomColor() {
+      var allowed = "ABCDEF0123456789",
+        S = "#";
+      while (S.length < 7) {
+        S += allowed.charAt(Math.floor((Math.random() * 16) + 1));
+      }
+      return S;
+    }
+  </script>
+
+</body>
+
+</html>
